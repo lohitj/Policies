@@ -1,0 +1,19 @@
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: aggregate-admin
+  labels:
+    # Add these permissions to the "admin" default ClusterRole.
+    rbac.authorization.k8s.io/aggregate-to-admin: "true"
+rules:
+- apiGroups:
+  - extensions
+  resources:
+  - podsecuritypolicies
+  resourceNames:
+  - admin-psp
+  verbs:
+  - use
+  
+  
+[kubectl create clusterrole aggregate-admin --verb=use  --resource=podsecuritypolicies --resource-name= admin-psp]
