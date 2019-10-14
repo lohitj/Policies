@@ -1,0 +1,24 @@
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: psp-ports
+spec:
+  privileged: false
+  hostPorts:
+  - max: 65535
+    min: 0
+  runAsUser:
+   rule: MustRunAsNonRoot
+  seLinux:
+    rule: RunAsAny
+  fsGroup:
+    rule: RunAsAny
+  supplementalGroups:
+    rule: RunAsAny
+  volumes:
+  - '*'
+#  - 'emptydir{}'
+#  #  - 'persistentVolumeClaim'
+#  #  - 'gitRepo'
+#  #  - 'configMap'
+#  #  - 'hostPath'
