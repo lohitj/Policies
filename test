@@ -1,0 +1,12 @@
+1. Deploy MutatingWebhookConfiguration already deployed no need to deploy again 
+
+$ kubectl apply -f mutatingwebhook.yaml
+
+2. Deploy configmap with rule and admissionreview in OPA namespace 
+
+$ kubectl delete configmap rule -n opa
+$ kubectl delete configmap admissionreview -n opa
+$ kubectl create configmap admissionreview --from-file admissionreview.rego -n opa
+$ kubectl create configmap rule --from-file rule.rego -n opa
+
+
