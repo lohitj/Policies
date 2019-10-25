@@ -9,7 +9,7 @@ from xlwt import Workbook
 #sheet1.write(0, 0, 'ETAG')
 client = boto3.client('s3')
 response = client.list_objects(
-        Bucket='fmc-prod-repo-usw2'
+        Bucket='my_bucket'
         )
 #j=1
 #for i in response['Contents']:
