@@ -12,27 +12,26 @@ client = boto3.client('s3')
 response = client.list_objects(
         Bucket='my_bucket'
         )
-j=1
-k=0.0
-for i in response['Contents']:
-        print(i['ETag'])
-        sheet1.write(j,0,i['ETag'])
-        sheet1.write(j,1,i['Key'])
-        j = j+1
-        if k = 5000:
-          break
-        else:
-          continue                    
-wb.save("Etag_example.xls")
+#j=1
+#k=0.0
+#for i in response['Contents']:
+#        print(i['ETag'])
+#        sheet1.write(j,0,i['ETag'])
+#        sheet1.write(j,1,i['Key'])
+#        j = j+1
+#        if k = 5000:
+#         break
+#        else:
+#          continue                    
+#wb.save("Etag_example.xls")
 
 
-#for i in range(0,2):
-#i=0.0        
-#while i<=5000:
-#    print(response['Contents'][i]['ETag'])
-#    sheet1.write(i+1,0,response['Contents'][i]['ETag'])
-#    sheet1.write(i+1,0,response['Contents'][i]['Key'])    
-#    i=i+1
-#wb.save("Etag2_example.xls")
+
+for i in range(0,2):       
+    print(response['Contents'][i]['ETag'])
+    sheet1.write(i+1,0,response['Contents'][i]['ETag'])
+    sheet1.write(i+1,0,response['Contents'][i]['Key'])    
+    i=i+1
+wb.save("Etag2_example.xls")
 #print(response['Contents'][0]['Key'])
 ~               
