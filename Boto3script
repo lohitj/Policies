@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 import boto3
 client = boto3.client('s3')
-response = client.get_object(Bucket='elasticbeanstalk-ap-south-1-100931169541',Key='AKIAJPUFKGTWEAG3Z7PA') # enter your bucet and key
-print(response)
+response = client.list_objects(
+        Bucket='elasticbeanstalk-ap-south-1-100931169541'
+        )
+for i in response['Contents']:
+        print(i['ETag'])
