@@ -1,4 +1,5 @@
+#!/usr/bin/env python
 import boto3
-s3 = boto3.resource('s3')
-bucket = s3.Bucket('my-bucket') # please enter the name of your bucket
-print(bucket)
+client = boto3.client('s3')
+response = client.get_object(Bucket='elasticbeanstalk-ap-south-1-100931169541',Key='AKIAJPUFKGTWEAG3Z7PA') # enter your bucet and key
+print(response)
