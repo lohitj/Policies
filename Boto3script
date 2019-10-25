@@ -19,7 +19,7 @@ response = client.list_objects(
 #        sheet1.write(j,0,i['ETag'])
 #        sheet1.write(j,1,i['Key'])
 #        j = j+1
-#        if k = 5000:
+#        if k == 5000:
 #         break
 #        else:
 #          continue                    
