@@ -8,7 +8,7 @@ wb = Workbook()
 sheet1 = wb.add_sheet('Sheet 1')
 sheet1.write(0, 0, 'ETAG')
 sheet1.write(0,1,'Key')
-sheet1.write(0,2,'metadata')
+sheet1.write(0,2,'Metadata')
 client = boto3.client('s3')
 paginator = client.get_paginator('list_objects_v2').paginate(
         Bucket='elasticbeanstalk-ap-south-1-100931169541'
