@@ -30,8 +30,12 @@ response = client.list_objects(
 for i in range(0,2):       
     print(response['Contents'][i]['ETag'])
     sheet1.write(i+1,0,response['Contents'][i]['ETag'])
-    sheet1.write(i+1,0,response['Contents'][i]['Key'])    
-    i=i+1
+    sheet1.write(i+1,1,response['Contents'][i]['Key'])
+    metadata = client.get_object(
+            Bucket='my_bucket',
+            Key = response['Contents'][i]['Key']
+            )
+    sheet1.write(i+1,2,metadata['Metadata'])
 wb.save("Etag2_example.xls")
 #print(response['Contents'][0]['Key'])
 ~               
