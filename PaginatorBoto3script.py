@@ -23,4 +23,7 @@ for page in paginator:
         sheet1.write(int(i),0,objct['ETag'])
         sheet1.write(int(i),1,objct['Key'])
         sheet1.write(int(i),2,str(response['Metadata']))
+        print(objct['ETag'])
+        print(objct['Key'])
+        print(response['Metadata'])
 wb.save("Etag3_example.xls")
