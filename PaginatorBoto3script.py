@@ -14,7 +14,7 @@ sheet1.write(0,4,'VersionId')
 client = boto3.client('s3')
 paginator = client.get_paginator('list_objects_v2').paginate(
         Bucket='elasticbeanstalk-ap-south-1-100931169541',
-        PaginationConfig={'MaxItems': 5000}
+        PaginationConfig={'MaxItems': 20}
         )
 i = 1.0
 for page in paginator:
