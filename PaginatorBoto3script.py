@@ -14,6 +14,7 @@ paginator = client.get_paginator('list_objects_v2').paginate(
         Bucket='elasticbeanstalk-ap-south-1-100931169541',
         PaginationConfig={'MaxItems': 5000}
         )
+i = 1.0
 for page in paginator:
     for objct in page['Contents']:
         response = client.get_object(
@@ -26,4 +27,5 @@ for page in paginator:
         print(objct['ETag'])
         print(objct['Key'])
         print(response['Metadata'])
+        i = i+1
 wb.save("Etag3_example.xls")
